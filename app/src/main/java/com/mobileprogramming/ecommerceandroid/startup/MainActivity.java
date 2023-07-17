@@ -2,6 +2,7 @@ package com.mobileprogramming.ecommerceandroid.startup;
 
 import static java.util.Objects.*;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
@@ -19,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import com.mobileprogramming.ecommerceandroid.R;
+import com.mobileprogramming.ecommerceandroid.miscellaneous.EmptyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static ViewPager viewPager;
     static TabLayout tabLayout;
 
+    @SuppressLint("UseSupportActionBar")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -140,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewPager.setAdapter(adapter);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -197,11 +199,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public int getItemCount() {
             return fragments.size();
         }
-
-        @Override
-        public CharSequence getPageTitle(int position){
-            return fragmentTitles.get(position);
-        }
-
     }
 }
